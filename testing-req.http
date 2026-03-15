@@ -1,14 +1,18 @@
-GET http://localhost:3000/moo
+### Variables
+@baseUrl = https://cactro-15-3-2026.vercel.app/
 
+### Health Check
+GET {{baseUrl}}/moo
 
+###
 
 ### 1. Check current status (Should return 401)
-GET http://localhost:3000/auth/me
+GET {{baseUrl}}/auth/me
 
 ###
 
 ### 2. Login as Manager (Default User - Simple Password)
-POST http://localhost:3000/auth/login
+POST {{baseUrl}}/auth/login
 Content-Type: application/json
 
 {
@@ -19,7 +23,7 @@ Content-Type: application/json
 ###
 
 ### 3. Update Event (As Manager - Triggers Notification Log)
-PATCH http://localhost:3000/api/events/evt-101
+PATCH {{baseUrl}}/api/events/evt-101
 Content-Type: application/json
 
 {
@@ -30,7 +34,7 @@ Content-Type: application/json
 ###
 
 ### 4. Signup a New Customer (Auto-increments ID)
-POST http://localhost:3000/auth/signup
+POST {{baseUrl}}/auth/signup
 Content-Type: application/json
 
 {
@@ -42,7 +46,7 @@ Content-Type: application/json
 ###
 
 ### 5. Login as the New Customer (Uses Bcrypt)
-POST http://localhost:3000/auth/login
+POST {{baseUrl}}/auth/login
 Content-Type: application/json
 
 {
@@ -53,9 +57,9 @@ Content-Type: application/json
 ###
 
 ### 6. Book Event (As Customer - Triggers Email Log)
-POST http://localhost:3000/api/events/evt-101/book
+POST {{baseUrl}}/api/events/evt-101/book
 
 ###
 
 ### 7. Logout
-POST http://localhost:3000/auth/logout
+POST {{baseUrl}}/auth/logout
