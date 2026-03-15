@@ -1,0 +1,246 @@
+{
+  "buildManifest": {
+    "serverBundles": {
+      "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0": {
+        "id": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+        "file": "build/server/nodejs_eyJydW50aW1lIjoibm9kZWpzIn0/index.js",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    },
+    "routeIdToServerBundleId": {
+      "routes/home": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/moo": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/auth/signup": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/auth/login": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/auth/logout": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/auth/me": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/api/events-list": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/api/event-detail": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/api/book-ticket": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0"
+    },
+    "routes": {
+      "root": {
+        "id": "root",
+        "file": "app/root.tsx",
+        "path": "",
+        "config": {}
+      },
+      "routes/home": {
+        "id": "routes/home",
+        "parentId": "root",
+        "file": "app/routes/home.tsx",
+        "index": true,
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/moo": {
+        "id": "routes/moo",
+        "parentId": "root",
+        "file": "app/routes/moo.ts",
+        "path": "moo",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/auth/signup": {
+        "id": "routes/auth/signup",
+        "parentId": "root",
+        "file": "app/routes/auth/signup.tsx",
+        "path": "auth/signup",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/auth/login": {
+        "id": "routes/auth/login",
+        "parentId": "root",
+        "file": "app/routes/auth/login.tsx",
+        "path": "auth/login",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/auth/logout": {
+        "id": "routes/auth/logout",
+        "parentId": "root",
+        "file": "app/routes/auth/logout.tsx",
+        "path": "auth/logout",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/auth/me": {
+        "id": "routes/auth/me",
+        "parentId": "root",
+        "file": "app/routes/auth/me.tsx",
+        "path": "auth/me",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/api/events-list": {
+        "id": "routes/api/events-list",
+        "parentId": "root",
+        "file": "app/routes/api/events-list.ts",
+        "path": "api/events",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/api/event-detail": {
+        "id": "routes/api/event-detail",
+        "parentId": "root",
+        "file": "app/routes/api/event-detail.ts",
+        "path": "api/events/:id",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/api/book-ticket": {
+        "id": "routes/api/book-ticket",
+        "parentId": "root",
+        "file": "app/routes/api/book-ticket.ts",
+        "path": "api/events/:id/book",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    }
+  },
+  "reactRouterConfig": {
+    "appDirectory": "D:/cactro-15-03-2026/new/cactro-15-3-2026/app",
+    "basename": "/",
+    "buildDirectory": "D:/cactro-15-03-2026/new/cactro-15-3-2026/build",
+    "future": {
+      "unstable_optimizeDeps": false,
+      "unstable_subResourceIntegrity": false,
+      "unstable_trailingSlashAwareDataRequests": false,
+      "unstable_previewServerPrerendering": false,
+      "v8_middleware": false,
+      "v8_splitRouteModules": false,
+      "v8_viteEnvironmentApi": false
+    },
+    "routes": {
+      "root": {
+        "id": "root",
+        "file": "root.tsx",
+        "path": ""
+      },
+      "routes/home": {
+        "id": "routes/home",
+        "parentId": "root",
+        "file": "routes/home.tsx",
+        "index": true
+      },
+      "routes/moo": {
+        "id": "routes/moo",
+        "parentId": "root",
+        "file": "routes/moo.ts",
+        "path": "moo"
+      },
+      "routes/auth/signup": {
+        "id": "routes/auth/signup",
+        "parentId": "root",
+        "file": "./routes/auth/signup.tsx",
+        "path": "auth/signup"
+      },
+      "routes/auth/login": {
+        "id": "routes/auth/login",
+        "parentId": "root",
+        "file": "./routes/auth/login.tsx",
+        "path": "auth/login"
+      },
+      "routes/auth/logout": {
+        "id": "routes/auth/logout",
+        "parentId": "root",
+        "file": "./routes/auth/logout.tsx",
+        "path": "auth/logout"
+      },
+      "routes/auth/me": {
+        "id": "routes/auth/me",
+        "parentId": "root",
+        "file": "./routes/auth/me.tsx",
+        "path": "auth/me"
+      },
+      "routes/api/events-list": {
+        "id": "routes/api/events-list",
+        "parentId": "root",
+        "file": "./routes/api/events-list.ts",
+        "path": "api/events"
+      },
+      "routes/api/event-detail": {
+        "id": "routes/api/event-detail",
+        "parentId": "root",
+        "file": "./routes/api/event-detail.ts",
+        "path": "api/events/:id"
+      },
+      "routes/api/book-ticket": {
+        "id": "routes/api/book-ticket",
+        "parentId": "root",
+        "file": "./routes/api/book-ticket.ts",
+        "path": "api/events/:id/book"
+      }
+    },
+    "routeDiscovery": {
+      "mode": "lazy",
+      "manifestPath": "/__manifest"
+    },
+    "serverBuildFile": "index.js",
+    "serverModuleFormat": "esm",
+    "ssr": true,
+    "allowedActionOrigins": false,
+    "unstable_routeConfig": [
+      {
+        "id": "root",
+        "path": "",
+        "file": "root.tsx",
+        "children": [
+          {
+            "file": "routes/home.tsx",
+            "index": true
+          },
+          {
+            "file": "routes/moo.ts",
+            "path": "moo"
+          },
+          {
+            "file": "./routes/auth/signup.tsx",
+            "path": "auth/signup"
+          },
+          {
+            "file": "./routes/auth/login.tsx",
+            "path": "auth/login"
+          },
+          {
+            "file": "./routes/auth/logout.tsx",
+            "path": "auth/logout"
+          },
+          {
+            "file": "./routes/auth/me.tsx",
+            "path": "auth/me"
+          },
+          {
+            "file": "./routes/api/events-list.ts",
+            "path": "api/events"
+          },
+          {
+            "file": "./routes/api/event-detail.ts",
+            "path": "api/events/:id"
+          },
+          {
+            "file": "./routes/api/book-ticket.ts",
+            "path": "api/events/:id/book"
+          }
+        ]
+      }
+    ]
+  },
+  "viteConfig": {
+    "build": {
+      "assetsDir": "assets"
+    }
+  }
+}
