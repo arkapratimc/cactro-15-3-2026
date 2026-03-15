@@ -1,100 +1,51 @@
-# Welcome to React Router!
+# Cactro Event Management API (Full-Stack Demo)
 
-A modern, production-ready template for building full-stack React applications using React Router.
+A backend demonstration built with React Router v7 (Framework Mode). This project implements secure session management, Role-Based Access Control (RBAC), and asynchronous background processing.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-This template includes three Dockerfiles optimized for different package managers:
-
-- `Dockerfile` - for npm
-- `Dockerfile.pnpm` - for pnpm
-- `Dockerfile.bun` - for bun
-
-To build and run using Docker:
-
-```bash
-# For npm
-docker build -t my-app .
-
-# For pnpm
-docker build -f Dockerfile.pnpm -t my-app .
-
-# For bun
-docker build -f Dockerfile.bun -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+**Live Production URL:** https://cactro-15-3-2026.vercel.app/
 
 ---
 
-Built with ❤️ using React Router.
+## Architectural Highlights
+
+### 1. Identity and Access Management (IAM)
+* **JWT-Powered Sessions:** Uses signed JSON Web Tokens stored in HttpOnly cookies for stateless, secure authentication.
+* **Hybrid Auth Logic:** Support for both legacy default users (simple comparison) and new users (Bcrypt hashing), demonstrating a smooth migration path.
+* **RBAC Guards:** Server-side validation ensures ORGANIZERS can only manage events and CUSTOMERS can only book them.
+
+### 2. Async Job Queue (The Macro-task Pattern)
+To keep the API responsive, the system offloads heavy operations to an in-memory job queue:
+* **Non-Blocking:** Uses the Node.js Event Loop to offload operations like sending confirmation emails or broadcasting updates.
+* **Decoupled Logic:** The API returns a success response to the user immediately, while the Worker processes the task on the next macro-task tick.
+
+### 3. Data Integrity
+* **Prefixed Auto-increment IDs:** Users and Events use semantic prefixes (e.g., mgr-1, cust-3, evt-101) for better log readability and debugging.
+* **In-Memory Store:** A centralized db.server.ts acts as a single source of truth for the application state during the session.
+
+---
+
+## Rapid Testing Guide
+
+I have included a pre-configured **testing-req.http** file in the root directory. This eliminates the need for manual Postman configuration.
+
+### Requirements
+* VS Code with the REST Client Extension installed.
+
+### Instructions
+1. Open testing-req.http.
+2. Click "Send Request" on the endpoints in chronological order.
+3. The extension handles the Set-Cookie headers automatically, maintaining the session across requests.
+
+**Note on Logs:** If testing via the Live URL, background task outputs (Email confirmations and Notifications) are visible in the Vercel Project Logs. If running locally, they appear in the terminal 2 seconds after the request completes.
+
+---
+
+## Project Structure
+* app/routes/auth/: Contains Login, Signup, Logout, and Session validation logic.
+* app/routes/api/: Contains Event browsing, Detail management, and Ticket booking endpoints.
+* app/utils/: Core utilities for JWT signing, Bcrypt hashing, and the Async Job Queue implementation.
+
+
+Note on Local Builds
+
+This project cannot be built locally using standard build commands as Vercel maintains their own proprietary template and build optimization process for React Router. To understand how the environment is structured and deployed, please refer to the Vercel Guide for more information.
