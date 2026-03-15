@@ -1,0 +1,61 @@
+GET http://localhost:3000/moo
+
+
+
+### 1. Check current status (Should return 401)
+GET http://localhost:3000/auth/me
+
+###
+
+### 2. Login as Manager (Default User - Simple Password)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "organizer@cactro.com",
+    "password": "password123"
+}
+
+###
+
+### 3. Update Event (As Manager - Triggers Notification Log)
+PATCH http://localhost:3000/api/events/evt-101
+Content-Type: application/json
+
+{
+    "title": "Cactro Tech Summit 2026 (Updated)",
+    "description": "An updated description for the demo."
+}
+
+###
+
+### 4. Signup a New Customer (Auto-increments ID)
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "email": "newuser@test.com",
+    "password": "securePassword",
+    "role": "CUSTOMER"
+}
+
+###
+
+### 5. Login as the New Customer (Uses Bcrypt)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "newuser@test.com",
+    "password": "securePassword"
+}
+
+###
+
+### 6. Book Event (As Customer - Triggers Email Log)
+POST http://localhost:3000/api/events/evt-101/book
+
+###
+
+### 7. Logout
+POST http://localhost:3000/auth/logout
