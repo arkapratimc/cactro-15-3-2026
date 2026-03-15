@@ -49,3 +49,23 @@ I have included a pre-configured **testing-req.http** file in the root directory
 Note on Local Builds
 
 This project cannot be built locally using standard build commands as Vercel maintains their own proprietary template and build optimization process for React Router. To understand how the environment is structured and deployed, please refer to the Vercel Guide for more information.
+
+## Route Configuration & Logic
+
+The application uses a prefixed route structure for clear separation between authentication and data services.
+
+### Authentication Routes (`/auth/*`)
+| Route | Method | Logic |
+| :--- | :--- | :--- |
+| `auth/signup` | `POST` | Creates new user with **Bcrypt** password hashing. |
+| `auth/login` | `POST` | Verifies credentials and issues a **JWT** via HttpOnly cookie. |
+| `auth/logout` | `POST` | Invalidates the session by clearing the cookie. |
+| `auth/me` | `GET` | Validates JWT to return current user data and role. |
+
+### API Routes (`/api/*`)
+| Route | Method | Logic |
+| :--- | :--- | :--- |
+| `api/events` | `GET` | Public browsing of all events. |
+| `api/events/:id` | `GET` | Fetch specific event metadata. |
+| `api/events/:id` | `PATCH` | **Organizer Only**: Updates title/description. Triggers async notification job. |
+| `api/events/:id/book` | `POST` | **Customer Only**: Records booking. Triggers async email job. |

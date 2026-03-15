@@ -38,7 +38,7 @@ POST {{baseUrl}}/auth/signup
 Content-Type: application/json
 
 {
-    "email": "newuser@test.com",
+    "email": "newuser3@test.com",
     "password": "securePassword",
     "role": "CUSTOMER"
 }
@@ -50,7 +50,7 @@ POST {{baseUrl}}/auth/login
 Content-Type: application/json
 
 {
-    "email": "newuser@test.com",
+    "email": "newuser3@test.com",
     "password": "securePassword"
 }
 
